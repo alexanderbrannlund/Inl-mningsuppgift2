@@ -48,17 +48,17 @@ int main()
 
 	std::cin.get();
 	std::cout << std::endl << std::endl;
-	test = readFromFile("Graph.txt", graph);
+	test = readFromFile("Graph2.txt", graph);
 	std::cout << "Presenting minimum spanning tree...." << std::endl;
 
-	List<AdjacencyInfo> mst[7];
+	List<AdjacencyInfo> mst[graph->getNrOfVertices];
 	int totalCost = 0;
 
 	std::stringstream ss;
 
-	graph->minSpanTree(mst, 7, totalCost);
+	graph->minSpanTree(mst, graph->getNrOfVertices, totalCost);
 
-	for (int i = 0; i < 7; i++)
+	for (int i = 0; i < graph->getNrOfVertices(); i++)
 	{
 
 		for (int u = 0; u < mst[i].length(); u++)

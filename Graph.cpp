@@ -230,7 +230,6 @@ void Graph::minSpanTree(List<AdjacencyInfo> minSpanTree[], int cap, int & totalC
 	while (!allKnown)
 	{
 		int minArc=999999;
-		int minSpot;
 		for (int i = 0; i < nrOfVert; i++)
 		{
 			if (helpList[i].length() > 0)
@@ -246,7 +245,6 @@ void Graph::minSpanTree(List<AdjacencyInfo> minSpanTree[], int cap, int & totalC
 							minArc = helpList[i].getAt(0).getArcWeight();
 							neighbour = helpList[i].getAt(0).getNeighbourVertex();
 							source = i;
-							minSpot = 0;
 						}
 						else
 						{
@@ -265,7 +263,6 @@ void Graph::minSpanTree(List<AdjacencyInfo> minSpanTree[], int cap, int & totalC
 											minArc = helpList[i].getAt(0).getArcWeight();
 											neighbour = helpList[i].getAt(0).getNeighbourVertex();
 											source = i;
-											minSpot = u;
 											u = helpList[i].length();
 										}
 									}
