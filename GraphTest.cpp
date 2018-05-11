@@ -50,15 +50,16 @@ int main()
 	std::cout << std::endl << std::endl;
 	test = readFromFile("Graph.txt", graph); //den första oriktade grafen
 	std::cout << "Presenting minimum spanning tree...." << std::endl;
+	const int cap = graph->getNrOfVertices();
 
-	List<AdjacencyInfo> mst[7];
+	List<AdjacencyInfo>* mst= new List<AdjacencyInfo>[cap];
 	int totalCost = 0;
 
 	std::stringstream ss;
 
-	graph->minSpanTree(mst, 7, totalCost);
+	graph->minSpanTree(mst, cap, totalCost);
 
-	for (int i = 0; i < 7; i++)
+	for (int i = 0; i < cap; i++)
 	{
 
 		for (int u = 0; u < mst[i].length(); u++)
@@ -76,7 +77,7 @@ int main()
 	
 
 	std::cin.get();
-
+	delete[] mst;
 	delete[] graph;
 	return 0;
 }
